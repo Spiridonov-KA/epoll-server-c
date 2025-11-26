@@ -1,0 +1,10 @@
+*.o
+epoll-server
+*.deb
+*.changes
+*.buildinfo
+debian/files
+debian/.debhelper/
+debian/epoll-server.debhelper.log
+debian/epoll-server.substvars
+debian/epoll-server/

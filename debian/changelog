@@ -1,0 +1,8 @@
+epoll-server (1.0.0-1) noble; urgency=medium
+
+  * Initial release
+  * Added support for /time, /stats, /shutdown commands
+  * Implemented edge-triggered epoll mode
+  * Fixed DEB packaging for Ubuntu 24.04
+
+ -- Kirill Spiridonov <vo-ro@list.ru>  Wed, 26 Nov 2025 16:01:55 +0300
