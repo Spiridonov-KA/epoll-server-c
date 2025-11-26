@@ -1,0 +1,35 @@
+name: Build DEB Package
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    
+    permissions:
+      contents: write
+      
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Install build dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y devscripts debhelper gcc make dh-apparmor build-essential
+        
+    - name: Build DEB package
+      run: |
+        make deb
+    
+    - name: Rename package for release
+      run: |
+        mv ../*_amd64.deb epoll-server_${{ github.ref_name }}_amd64.deb
+    
+    - name: Upload to Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: epoll-server_${{ github.ref_name }}_amd64.deb
+        tag_name: ${{ github.ref_name }}
+        generate_release_notes: true

@@ -1,0 +1,14 @@
+Source: epoll-server
+Section: net
+Priority: optional
+Maintainer: Kirill Spiridonov vo-ro@list.ru
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.5.0
+Homepage: https://github.com/Spiridonov-KA/epoll-server-c
+
+Package: epoll-server
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: epoll-server
+ Supports commands like /time, /stats, and /shutdown.
+ Built for edge-triggered epoll mode.
